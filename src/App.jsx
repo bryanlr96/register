@@ -10,12 +10,10 @@ function App() {
     if(initalBooks){
       setBooks(JSON.parse(initalBooks))
     }
-    console.log(books)
   },[])
 
   return (
     <>
-      
     </>
   )
 }
