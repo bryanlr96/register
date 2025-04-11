@@ -2,9 +2,11 @@ import { useState } from 'react'
 import './App.css'
 import { useEffect } from 'react'
 import Table from './components/table/Table'
+import Modal from './components/modal/Modal'
 
 function App() {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const initalBooks = localStorage.getItem('books')
@@ -15,6 +17,7 @@ function App() {
 
   return (
     <>
+    <Modal visible = {visible} setVisible ={setVisible} setBooks={setBooks}/>
       <Table
         books={books}
       />
