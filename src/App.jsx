@@ -3,10 +3,11 @@ import './App.css'
 import { useEffect } from 'react'
 import Table from './components/table/Table'
 import Modal from './components/modal/Modal'
+import { AddButton } from './components/table/tableStyled'
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const initalBooks = localStorage.getItem('books')
@@ -20,16 +21,17 @@ function App() {
     <Modal visible={visible} setVisible ={setVisible} setBooks={setBooks}/>
       <Table
         books={books}
+        
       />
 
       <div className='btnContainer'>
-        <button className='btn' onClick={() =>{setVisible(true)}}>
-          añadir
-        </button>
+        <AddButton className='btn' onClick={() =>{setVisible(true)}}>
+          Añadir
+        </AddButton>
       </div>
 
     </>
   )
 }
 
-export default App
+export default App;

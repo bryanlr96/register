@@ -1,26 +1,26 @@
-
 import TableItem from '../tableItem/TableItem'
+import { StyledTable, TableWrapper, Th, Thead,  } from './tableStyled'
 
 export default function Table({ books }) {
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Titulo</th>
-          <th>Autor</th>
-          <th>Precio</th>
-          <th className='black'></th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          books.map(book => (
+<TableWrapper>
+      <StyledTable>
+        <Thead>
+          <tr>
+            <Th>Título</Th>
+            <Th>Autor</Th>
+            <Th>Precio</Th>
+            <Th></Th>
+          </tr>
+        </Thead>
+        <tbody>
+        {books.map(book => (
             <TableItem book={book} key={book.id} />
-          ))
-        }
-      </tbody>
-    </table>
+          ))}
+        </tbody>
+      </StyledTable>
+    </TableWrapper>
   )
-}
+};
 
