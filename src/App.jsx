@@ -6,7 +6,7 @@ import Modal from './components/modal/Modal'
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const initalBooks = localStorage.getItem('books')
@@ -17,14 +17,14 @@ function App() {
 
   return (
     <>
-    <Modal visible = {visible} setVisible ={setVisible} setBooks={setBooks}/>
+    <Modal visible={visible} setVisible ={setVisible} setBooks={setBooks}/>
       <Table
         books={books}
       />
 
       <div className='btnContainer'>
-        <button className='btn'>
-          +
+        <button className='btn' onClick={() =>{setVisible(true)}}>
+          añadir
         </button>
       </div>
 

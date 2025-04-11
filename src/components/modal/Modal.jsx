@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Card, InputWrapper, AddButton, Title, CloseButton, Overlay, StyledInput } from "./modalStyled.js";
+import { Card, InputWrapper, AddButton, Title, CloseButton, Overlay, StyledInput, Wrapper } from "./modalStyled.js";
 import { FaPerson, FaBook, FaMoneyBill1Wave, FaRegSquareMinus } from "react-icons/fa6";
 
-const Modal = ({ setBooks, setVisible }) => {
-  const [autor, setAutor] = useState("");
+const Modal = ({ setBooks, setVisible, visible }) => {
+  const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
 
@@ -13,8 +13,8 @@ const Modal = ({ setBooks, setVisible }) => {
 
     // Crear el nuevo libro con un ID basado en la longitud del array
     const newBook = {
-      id: storedBooks.length,
-      autor,
+      id: storedBooks.length +1,
+      author,
       title,
       price,
     };
@@ -31,7 +31,7 @@ const Modal = ({ setBooks, setVisible }) => {
     console.log("Lista actualizada de libros:");
     console.log(updatedBooks);
 
-    setAutor("");
+    setAuthor("");
     setTitle("");
     setPrice("");
 
@@ -40,50 +40,52 @@ const Modal = ({ setBooks, setVisible }) => {
   };
 
   const closeBook = () => {
-    setVisible(false); 
+    setVisible(false);
   };
 
   return (
     <>
-      <Overlay onClick={closeBook} />
-      <Card onClick={(e) => e.stopPropagation()}>
-        <CloseButton onClick={closeBook}>
-          <FaRegSquareMinus />
-        </CloseButton>
-        <Title>Add your New Book</Title>
-  
-        <InputWrapper>
-          <FaPerson />
-          <StyledInput
-            type="text"
-            value={autor}
-            onChange={(e) => setAutor(e.target.value)}
-            placeholder="Autor"
-          />
-        </InputWrapper>
-  
-        <InputWrapper>
-          <FaBook />
-          <StyledInput
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Libro"
-          />
-        </InputWrapper>
-  
-        <InputWrapper>
-          <FaMoneyBill1Wave />
-          <StyledInput
-            type="text"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            placeholder="Precio"
-          />
-        </InputWrapper>
-  
-        <AddButton onClick={addBook}>Añadir</AddButton>
-      </Card>
+      <Wrapper visible={visible}>
+        <Overlay onClick={closeBook} />
+        <Card onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={closeBook}>
+            <FaRegSquareMinus />
+          </CloseButton>
+          <Title>Add your New Book</Title>
+
+          <InputWrapper>
+            <FaPerson />
+            <StyledInput
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              placeholder="Autor"
+            />
+          </InputWrapper>
+
+          <InputWrapper>
+            <FaBook />
+            <StyledInput
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Libro"
+            />
+          </InputWrapper>
+
+          <InputWrapper>
+            <FaMoneyBill1Wave />
+            <StyledInput
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="Precio"
+            />
+          </InputWrapper>
+
+          <AddButton onClick={addBook}>Añadir</AddButton>
+        </Card>
+      </Wrapper>
     </>
   );
 };

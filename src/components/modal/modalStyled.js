@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  display: ${({ visible }) => (visible ? "block" : "none")};
+`;
+
 export const Overlay = styled.div`
 position: fixed;
 top: 0;
