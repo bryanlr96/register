@@ -1,7 +1,9 @@
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
 import { Actions, IconButton, Td, Tr } from "./tableItemStyled";
 
-export default function TableItem({book}) {
+export default function TableItem({book, onEdit}) {
+
+
   return (
     <Tr>
       <Td>{book.title}</Td>
@@ -9,7 +11,7 @@ export default function TableItem({book}) {
       <Td>{book.price}€</Td>
       <Td>
         <Actions>
-          <IconButton title="Editar">
+          <IconButton title="Editar" onClick={() => onEdit(book)}>
             <FiEdit2 />
           </IconButton>
           <IconButton title="Borrar">
@@ -19,5 +21,4 @@ export default function TableItem({book}) {
       </Td>
     </Tr>
   )
-}
-
+};

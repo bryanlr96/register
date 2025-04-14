@@ -33,6 +33,7 @@ gap: 1rem;
 export const Title = styled.h2`
 color: #333;
 text-align: center;
+font-family: 'Segoe UI', sans-serif;
 `;
 
 export const InputWrapper = styled.div`
