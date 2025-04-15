@@ -29,9 +29,9 @@ const Modal = ({
 
   useEffect(() => {
     if (editingBook) {
-      setAuthor(editingBook.author);
-      setTitle(editingBook.title);
-      setPrice(editingBook.price);
+      setAuthor(editingBook?.author ?? '');
+      setTitle(editingBook?.title ?? '');
+      setPrice(editingBook?.price ?? '');
     } else {
       setAuthor('');
       setTitle('');

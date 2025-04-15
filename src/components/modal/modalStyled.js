@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  display: ${({ visible }) => (visible ? "block" : "none")};
+export const Wrapper = styled.div.withConfig({
+    shouldForwardProp: (prop) => prop !== 'visible',
+})`
+    display: ${(props) => (props.visible ? 'flex' : 'none')};
 `;
 
 export const Overlay = styled.div`

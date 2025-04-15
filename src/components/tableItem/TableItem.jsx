@@ -1,6 +1,6 @@
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
 import { Actions, IconButton, Td, Tr } from "./tableItemStyled";
-import { onUpdated } from "vue";
+
 
 export default function TableItem({ book, onEdit, books, setBooks }) {
   const handlerDelete = () => {
@@ -15,6 +15,7 @@ export default function TableItem({ book, onEdit, books, setBooks }) {
       <Td>{book.author}</Td>
       <Td>{book.price}€</Td>
       <Td>
+        
         <Actions>
           <IconButton title="Editar" onClick={() => onEdit(book)}>
             <FiEdit2 />

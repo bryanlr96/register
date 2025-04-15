@@ -22,10 +22,14 @@ function App() {
     setVisible(true);
   };
 
-  const handleAdd = () =>{
-    setEditingBook(null)
-    setVisible(true); 
-  }
+  const handleAdd = () => {
+    // Forzar cambio de estado
+    setEditingBook({}); // temporalmente un objeto vacío
+    setTimeout(() => {
+      setEditingBook(null);
+      setVisible(true);
+    }, 0);
+  };
 
   return (
     <>
