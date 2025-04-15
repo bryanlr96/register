@@ -40,6 +40,7 @@ function App() {
       <Table
         books={books}
         onEdit={handleEdit}
+        setBooks={setBooks}
         
       />
         <AddButton className='btn' onClick={handleAdd}>

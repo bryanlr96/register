@@ -1,7 +1,7 @@
 import TableItem from '../tableItem/TableItem'
 import { StyledTable, TableWrapper, Th, Thead, TableScrollArea, HeaderTitle, PageWrapper } from './tableStyled'
 
-export default function Table({ books, onEdit }) {
+export default function Table({ books, onEdit, setBooks }) {
 
   return (
     <PageWrapper>
@@ -19,7 +19,7 @@ export default function Table({ books, onEdit }) {
             </Thead>
             <tbody>
               {books.map(book => (
-                <TableItem key={book.id} book={book} onEdit={onEdit} />
+                <TableItem key={book.id} book={book} onEdit={onEdit} books={books} setBooks={setBooks} />
               ))}
             </tbody>
           </StyledTable>
